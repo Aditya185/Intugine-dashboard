@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-light {
+  background-color:#fff ;
+  
+}
+
+.navbar-brand{
+  text-decoration-style: solid;
+  font-weight: bold;
+  font-size: xx-small;
+
+}
+
+.nav-link{
+    text-decoration-style: solid;
+    font-weight: bold;
+    font-size: small;
+}
+
+.nav-text{
+  text-decoration-style: solid;
+  font-weight: bold;
+  font-size: small;
+}
+
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
