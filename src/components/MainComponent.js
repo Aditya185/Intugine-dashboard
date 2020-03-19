@@ -10,7 +10,15 @@ import {
 
 class Main extends Component {
 
+  
+    
+
     render(){
+
+      
+
+      
+
         return (
             <BrowserRouter>
 
@@ -132,9 +140,13 @@ class Main extends Component {
 
                             </div>
            
-                   
-    
                    </div>
+
+              
+
+                   
+
+
             </BrowserRouter>
            
           );
