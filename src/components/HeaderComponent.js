@@ -51,7 +51,7 @@ class Header extends Component {
                                 <NavLink className="nav-link"  to='#'> Transporters</NavLink>
                             </NavItem>
                            
-                           
+                              
                                 <NavItem>
                                     <div className="dot">
                                     <img src='assets/profile.svg' height="20" width="20" alt='Profile'/> 
@@ -74,6 +74,7 @@ class Header extends Component {
                                         </DropdownItem>
                                     </DropdownMenu>
                                     </UncontrolledDropdown>
+                                    
                             </Nav>
                         </Collapse>
                       

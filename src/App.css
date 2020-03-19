@@ -61,6 +61,10 @@
   font-size: small;
 }
 
+.dotted{
+  border-style: solid;
+}
+
 .dot {
   height: 35px;
   width: 35px;
