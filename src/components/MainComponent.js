@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import Header from './HeaderComponent';
 import { BrowserRouter } from 'react-router-dom';
 import Center from './CenterComponent';
-import { Timeline,Icon } from 'rsuite';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button,CardHeader, CardGroup
-  } from 'reactstrap';
-import ReactDOM from 'react-dom'
+import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
+
+
   
 import axios from 'axios';
 
@@ -16,7 +13,8 @@ import axios from 'axios';
 class Main extends Component {
 
     state = {
-        orders: []
+        orders: [],
+        scan_rev: []
       }
 
       
@@ -25,8 +23,12 @@ class Main extends Component {
         axios({ method: 'POST', url: 'https://93870v1pgk.execute-api.ap-south-1.amazonaws.com/latest/shipments/mayank', headers: {Authorization: 'Bearer tTU3gFVUdP'}, data: { email: 'mayankmittal@intugine.com' } })
         .then(res=>{
                 const orders = res.data.data;
+                const scans = res.data.data[0].scan;
+                const scan_rev = scans.reverse();
                 // console.log(orders[0])
                 this.setState({orders})
+                this.setState({scan_rev})
+                console.log(this.state.scascan_rev)
                 console.log(this.state.orders)
     
                
@@ -57,6 +59,29 @@ class Main extends Component {
         })
      }
 
+     renderTimeLineData(){
+      return this.state.scan_rev.map((scan, index) => {
+        const {time, location, status_detail} = scan
+        return(
+          <TimelineItem>
+          <p className="timeline_content">
+            <span className="timeline_status">
+              {time}
+          </span>
+            <span className="timeline_date">
+              {location}
+          </span>
+            <span className="timeline_time">
+              {status_detail}
+          </span>
+          </p>
+        </TimelineItem>
+        )
+
+      }
+        
+      )}
+
      
     
     
@@ -65,28 +90,23 @@ class Main extends Component {
 
         const TimelineList = () => {
             return(
-                <Timeline>
-                <Timeline.Item dot={<Icon icon="check-circle" style={{ color: 'green' }} />}>
-                  <p>2018-03-01</p>
-                  <p>Your order starts processing</p>
-                </Timeline.Item>
-                <Timeline.Item dot={<Icon icon="exclamation-triangle" style={{ color: 'orange' }} />}>
-                  <p>2018-03-02</p>
-                  <p>Order out of stock</p>
-                </Timeline.Item>
-                <Timeline.Item dot={<Icon icon="info-circle" style={{ color: 'blue' }} />}>
-                  <p>2018-03-10</p>
-                  <p>Arrival</p>
-                </Timeline.Item>
-                <Timeline.Item dot={<Icon icon="check-circle" style={{ color: 'green' }} />}>
-                  <p>2018-03-12</p>
-                  <p>Order out of the library</p>
-                </Timeline.Item>
-                <Timeline.Item dot={<Icon icon="spinner" spin style={{ borderRadius:'50%' }} />}>
-                  <p>2018-03-15</p>
-                  <p>Sending you a piece</p>
-                </Timeline.Item>
-              </Timeline>
+              
+             <div>
+              <Timeline lineColor={'#ddd'}>
+                <div className="timeline_image1">
+                  <img src="./assets/destination.svg" alt="" />
+                </div>
+                 {this.renderTimeLineData()}
+
+               
+               
+                
+                <div className="timeline_image2">
+                  <img src="./assets/warehouse.svg" alt="" />
+                </div>
+              </Timeline> 
+              </div>
+            
             );
           }
 
@@ -98,50 +118,53 @@ class Main extends Component {
         return (
             <BrowserRouter>
 
-                <div>
+               
             
                         <Header />
-    
+               
   
-      
+    
     <div className="cards">
           <div className="card">
             <p className="card_head">DEL</p>
             <p className="card_no">916</p >
           </div>
           <div className="card">
-            <p className="card_head">DEL</p>
+            <p className="card_head">INT</p>
+            <p className="card_no">232</p >
+          </div>
+          <div className="card">
+            <p className="card_head">OOD</p>
+            <p className="card_no">342</p >
+          </div>
+          <div className="card">
+            <p className="card_head">DEX</p>
             <p className="card_no">916</p >
           </div>
           <div className="card">
-            <p className="card_head">DEL</p>
-            <p className="card_no">916</p >
-          </div>
-          <div className="card">
-            <p className="card_head">DEL</p>
-            <p className="card_no">916</p >
-          </div>
-          <div className="card">
-            <p className="card_head">DEL</p>
+            <p className="card_head">NFI</p>
             <p className="card_no">916</p >
           </div>
         </div>
+        
+        
+        
      
     
 
 
     <div class="row row-content ">
        
-    <div class="col-sm-4 col-md-4 order-2">
+    <div class="col-12 col-sm-6">
         <TimelineList/>
     </div>
-    <div class="col-12 col-sm-4 order-sm-last col-md-7">
+    <div class="col-12 col-sm-4 order-sm-last col-md-6">
         <Center/>
     </div>
 
     </div>
            
-    </div>
+    
 
               
 

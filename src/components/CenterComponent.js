@@ -25,21 +25,21 @@ export default class Center extends React.Component {
 
   renderTableData() {
     return this.state.orders.map((order, index) => {
-       // const { order.extra_fields.expected_delivery_date}=order;
+     
        const {_id, awbno, carrier, from, to ,pickup_date , extra_fields,current_status} = order
       
        return (
        
           <tr key={_id}>
             
-             <td>{awbno}</td>
-             <td>{carrier}</td>
-             <td>{from}</td>
-             <td>{to}</td>
-             <td>{carrier}</td>
-             <td>{pickup_date}</td>
-             <td>{extra_fields? extra_fields.expected_delivery_date: ''}</td>
-             <td>{current_status}</td>
+             <td className="td">{awbno}</td>
+             <td className="td">{carrier}</td>
+             <td className="td">{from}</td>
+             <td className="td">{to}</td>
+             <td className="td">{carrier}</td>
+             <td className="td">{pickup_date}</td>
+             <td className="td">{extra_fields? extra_fields.expected_delivery_date: ''}</td>
+             <td className="td">{current_status}</td>
             
           </tr>
        )
@@ -55,23 +55,25 @@ export default class Center extends React.Component {
  //             })}
  //         </ul>
  //     </div>
- <Table responsive >
+ 
+ <Table className="table table-fixed">
  <thead >
    <tr>
-     <th>AWB NUMBER</th>
-     <th>TRANSPORTER</th>
-     <th>SOURCE</th>
-     <th>DESTINATION</th>
-     <th>BRAND</th>
-     <th>START DATE</th>
-     <th>ETD</th>
-     <th>STATUS</th>
+     <th className="th">AWB NUMBER</th>
+     <th className="th">TRANSPORTER</th>
+     <th className="th">SOURCE</th>
+     <th className="th">DESTINATION</th>
+     <th className="th">BRAND</th>
+     <th className="th">START DATE</th>
+     <th className="th">ETD</th>
+     <th className="th">STATUS</th>
    </tr>
  </thead>
- <tbody>
+ <tbody >
  {this.renderTableData()}
  </tbody>
 </Table>
+
             
     )
   }
