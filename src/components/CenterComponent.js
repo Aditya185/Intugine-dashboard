@@ -26,16 +26,19 @@ export default class Center extends React.Component {
   renderTableData() {
     return this.state.orders.map((order, index) => {
        // const { order.extra_fields.expected_delivery_date}=order;
-       const {_id, awbno, carrier,extra_fields, from, to ,pickup_date,current_status} = order //destructuring
+       const {_id, awbno, carrier, from, to ,pickup_date , extra_fields,current_status} = order
+      
        return (
+       
           <tr key={_id}>
+            
              <td>{awbno}</td>
              <td>{carrier}</td>
              <td>{from}</td>
              <td>{to}</td>
              <td>{carrier}</td>
              <td>{pickup_date}</td>
-             <td>{extra_fields.expected_delivery_date}</td>
+             <td>{extra_fields? extra_fields.expected_delivery_date: ''}</td>
              <td>{current_status}</td>
             
           </tr>
@@ -52,8 +55,8 @@ export default class Center extends React.Component {
  //             })}
  //         </ul>
  //     </div>
- <Table responsive>
- <thead>
+ <Table responsive >
+ <thead >
    <tr>
      <th>AWB NUMBER</th>
      <th>TRANSPORTER</th>

@@ -72,5 +72,77 @@
   border-radius: 50%;
   display: inline-block;
 }
+.table{
+  height:500px;
+  display:block;
+  overflow:scroll;
+  
+}
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background: #61dafb;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.custom-timeline {
+  margin-left: 20px;
+}
+
+.custom-timeline .rs-timeline-item-custom-dot .rs-icon {
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: -2px;
+  border: 2px solid #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  padding-top: 9px;
+  color: #999;
+  margin-left: -13px;
+}
+
+.custom-timeline .rs-timeline-item-content {
+  margin-left: 24px;
+}
+
+.card {
+  width: 7rem !important;
+  border-radius: 0.6rem !important;
+  background-color: blue !important;
+  height: 6rem;
+  margin: 1rem;
+}
+
+.card_head {
+  left: 0.5rem;
+  position: absolute;
+  color: white;
+}
+
+.card_no {
+  position: inherit;
+  top: 1rem;
+  margin: auto;
+  font-size: 2rem;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
