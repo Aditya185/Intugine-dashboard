@@ -6,7 +6,7 @@ import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
 
 import axios from 'axios';
 
-let nod = 0;
+
 
 export default class Center extends React.Component {
 
@@ -138,20 +138,14 @@ fetchDetails = (order) => {
     
     
     return (
- //     <div>
- //         <ul>
- //             {this.state.orders.mapreturn(order => {
- //                 return <li>{order.awbno}</li>
- //             })}
- //         </ul>
- //     </div>
+
  <div class="row row-content ">
        
     <div class="col-12 col-sm-6">
         <TimelineList/>
     </div>
     <div class="col-12 col-sm-4 order-sm-last col-md-6">
-    <Table className="table table-fixed">
+    <Table className="table table-fixed scrollbar">
  <thead >
    <tr>
      <th className="th">AWB NUMBER</th>

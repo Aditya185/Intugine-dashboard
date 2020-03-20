@@ -19,17 +19,10 @@ class Main extends Component {
 
     state = {
         orders: [],
-        scan_rev: []
+       
       }
 
-      fetchDetails = (order) => {
- 
-        console.log('We need to get the details for ', order);
-        console.log(order.scan)
-      
-      
-      }
-      
+   
 
       
 
@@ -37,11 +30,10 @@ class Main extends Component {
         axios({ method: 'POST', url: 'https://93870v1pgk.execute-api.ap-south-1.amazonaws.com/latest/shipments/mayank', headers: {Authorization: 'Bearer tTU3gFVUdP'}, data: { email: 'mayankmittal@intugine.com' } })
         .then(res=>{
                 const orders = res.data.data;
-                const scans = res.data.data[0].scan;
-               const scan_rev = scans.reverse();
+              
                 // console.log(orders[0])
                 this.setState({orders})
-                this.setState({scan_rev})
+               
                 // console.log(this.state.scascan_rev)
                 console.log(this.state.orders)
     
@@ -75,32 +67,7 @@ class Main extends Component {
         })
      }
 
-     renderTimeLineData(){
-      return this.state.scan_rev.map((scan, index) => {
-        const {time, location, status_detail} = scan
-        return(
-          <TimelineItem>
-          <p className="timeline_content">
-            <span className="timeline_status">
-              {status_detail}
-          </span>
-            <span className="timeline_date">
-              {time}
-          </span>
-            <span className="timeline_time">
-              {location}
-          </span>
-          </p>
-        </TimelineItem>
-        )
-
-      }
-        
-      )}
-
-     
-    
-    
+   
 
     render(){
        const a =this.state.orders;
@@ -121,41 +88,13 @@ class Main extends Component {
         a.map(data => data.current_status_code === 'NFI' ? nfi=nfi+1:nfi=nfi)
       }
     
-        const TimelineList = () => {
-            return(
-              
-             <div>
-              <Timeline lineColor={'#ddd'}>
-                <div className="timeline_image1">
-                  <img src="./assets/destination.svg" alt="" />
-                </div>
-                 {this.renderTimeLineData()}
-
-               
-               
-                
-                <div className="timeline_image2">
-                  <img src="./assets/warehouse.svg" alt="" />
-                </div>
-              </Timeline> 
-              </div>
-            
-            );
-          }
-
+       
+ return (
+ <BrowserRouter>
       
-      
-
-      
-
-        return (
-            <BrowserRouter>
-
+    <Header />
                
-            
-                        <Header />
-               
-                        <div className="cards">
+  <div className="cards">
     <div className="card">
       <p className="card_head">DEL</p>
         <p className="card_no">{del}</p >
@@ -176,33 +115,10 @@ class Main extends Component {
       <p className="card_head">NFI</p>
       <p className="card_no">{nfi}</p >
     </div>
-   </div>
-    
-   
-        
-     
-    
+   </div>  
    <Center/>
 
-    {/* <div class="row row-content ">
-       
-    <div class="col-12 col-sm-6">
-        <TimelineList/>
-    </div>
-    <div class="col-12 col-sm-4 order-sm-last col-md-6">
-        <Center/>
-    </div>
-
-    </div> */}
-           
-    
-
-              
-
-                   
-
-
-            </BrowserRouter>
+     </BrowserRouter>
            
           );
           }
